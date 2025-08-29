@@ -1,4 +1,3 @@
-
 # Flask BFHL API (Starter)
 
 A minimal Flask app that fulfills the BFHL assignment:
@@ -14,6 +13,15 @@ A minimal Flask app that fulfills the BFHL assignment:
   - `sum` (string)
   - `concat_string` (reverse of all letters, alternating caps starting with upper)
 
+---
+
+## 🚀 Live Deployment
+
+You can test the API here:  
+👉 **[https://bfhl-flask.onrender.com/bfhl](https://bfhl-flask.onrender.com/bfhl)**
+
+---
+
 ## Run locally
 
 ```bash
@@ -21,18 +29,19 @@ python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-export FULL_NAME="john_doe"       # must be lowercase
-export DOB_DDMMYYYY="17091999"
-export EMAIL="john@xyz.com"
-export ROLL_NUMBER="ABCD123"
+# set your details (PowerShell example)
+$env:FULL_NAME="john_doe"
+$env:DOB_DDMMYYYY="17091999"
+$env:EMAIL="john@xyz.com"
+$env:ROLL_NUMBER="ABCD123"
 
 python app.py
-# in another terminal:
-curl -X POST http://localhost:5000/bfhl   -H "Content-Type: application/json"   -d '{"data":["a","1","334","4","R","$"]}'
-```
 
+# test with curl
+curl -X POST http://localhost:5000/bfhl \
+  -H "Content-Type: application/json" \
+  -d '{"data":["a","1","334","4","R","$"]}'
 Expected (example) response:
-```json
 {
   "is_success": true,
   "user_id": "john_doe_17091999",
@@ -45,16 +54,28 @@ Expected (example) response:
   "sum": "339",
   "concat_string": "Ra"
 }
-```
+Deploy (one easy option: Render)
 
-## Deploy (one easy option: Render)
+Push this folder to a new public GitHub repo.
 
-1. Push this folder to a new public GitHub repo.
-2. On Render, create a **Web Service** from your repo.
-3. Select a Python version (e.g., 3.11), and ensure the Start Command is:
-   ```
-   gunicorn app:app
-   ```
-4. Once deployed, POST to `https://<your-service>.onrender.com/bfhl`.
+On Render, create a Web Service from your repo.
 
-(You can deploy to other platforms like Railway, Fly.io, or your own server — just use the `gunicorn app:app` entry point.)
+Select a Python version (e.g., 3.11), and ensure the Start Command is:
+
+gunicorn app:app
+
+
+Once deployed, POST to your live API endpoint:
+👉 https://bfhl-flask.onrender.com/bfhl
+(You can also deploy to Railway, Fly.io, or your own server — just use the gunicorn app:app entry point.)
+
+
+---
+
+## ✅ Next step
+- Replace your **README.md** with this one.  
+- Commit & push:
+  ```powershell
+  git add README.md
+  git commit -m "Update README with live Render link"
+  git push origin main
