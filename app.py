@@ -87,6 +87,13 @@ def bfhl():
     }
     return jsonify(response), 200
 
+@app.get("/")
+def home():
+    return {"message": "Server running. Use GET /bfhl or POST /bfhl"}
+
+@app.get("/bfhl")
+def bfhl_get():
+    return {"operation_code": 1, "message": "GET request successful"}
 
 if __name__ == "__main__":
     # Local dev
