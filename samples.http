@@ -1,0 +1,27 @@
+
+### Sample requests (use with VS Code REST Client or just as a reference)
+
+POST http://localhost:5000/bfhl
+Content-Type: application/json
+
+{
+  "data": ["a","1","334","4","R","$"]
+}
+
+###
+
+POST http://localhost:5000/bfhl
+Content-Type: application/json
+
+{
+  "data": ["2","a","y","4","&","-","*","5","92","b"]
+}
+
+###
+
+POST http://localhost:5000/bfhl
+Content-Type: application/json
+
+{
+  "data": ["A","ABcD","DOE"]
+}
